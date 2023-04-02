@@ -1,0 +1,87 @@
+body{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    margin: 0;
+    overflow: hidden;
+    font-family: "space Mono", monospace;
+}
+#moving-words{
+    font-size: 4rem;
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: 6rem;
+    color: white;
+}
+.track{
+   display: flex;
+   gap:4vmin;
+   position:absolute;
+   top:50%;
+   left:50%;
+   transform: translate(0%,-50%);
+   z-index: 3;
+   /* overflow: scroll; 
+   -webkit-overflow-scrolling: touch; */
+   color: aliceblue;
+
+}
+.track h1 {
+    align-self: center;
+    width: max-content;
+    animation: move 1s linear 5 alternate;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+.track::-webkit-scrollbar {
+    display: none;
+  }
+
+.track > .image{
+   width: 30vmin;
+   height: 46vmin;
+   object-fit: cover;
+   object-position: 100% center ;
+   border-radius: 4px;
+}
+#blob {
+    background-color: white;
+    height: 500px;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+     background: linear-gradient(to right,aquamarine,mediumpurple);
+    animation: rotate 20s infinite;
+}
+#blur {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    backdrop-filter: blur(200px);
+}
+@keyframes rotate {
+    from{
+        rotate: 0deg;
+    }
+    50% {
+        scale: 1 1.5;
+    }
+    to{
+        rotate: 360deg;
+    }
+}
+@keyframes move {
+    0%{
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-10px);
+    }
+
+}
